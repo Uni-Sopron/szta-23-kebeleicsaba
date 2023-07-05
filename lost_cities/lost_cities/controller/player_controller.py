@@ -15,14 +15,9 @@ class PlayerController:
     def draw_card(self, pile):
         self.player.draw_card(pile)
 
-    def select_card(self, card) -> Card:
-        return self.player.select_card(card)
-
-    def take_turn(self, action):
+    def take_turn(self, game_controller, action):
         if action["type"] == "play":
             self.play_card(action["card"], action["location"])
         elif action["type"] == "discard":
             self.discard_card(action["card"], action["location"])
-
-    def draw(self, game_controller, location):
-        game_controller.draw_card(self.player, location)
+        self.draw(game_controller, action["draw_from"])

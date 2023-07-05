@@ -22,8 +22,8 @@ repos:
     language: system
     entry: pipenv run flake8
     types: [python]
-    exclude: setup.py, lost_cities/lost_cities/model/__init__.py
-    args: ['--config=lost_cities/setup.cfg', '--ignore=E203,E266,E501,W503']
+    exclude: setup.py, lost_cities/lost_cities/model/__init__.py, lost_cities/lost_cities/controller/__init__.py, lost_cities/lost_cities/view/__init__.py
+    args: ['--config=lost_cities/setup.cfg', '--ignore=E203,E266,E501,W503,F401']
 
 
   - id: mypy

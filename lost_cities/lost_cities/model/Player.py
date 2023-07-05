@@ -13,6 +13,7 @@ class Player:
             color: Expedition(color)
             for color in ["Red", "Green", "Blue", "White", "Yellow"]
         }
+        self._points = 0
 
     def play_card(self, card: Card, expedition: str) -> None:
         if card in self._hand.get_hand():
@@ -43,13 +44,14 @@ class Player:
     def draw_card(self, pile: AbstractPile) -> None:
         card = pile.get_top_card()
         if card:
-            self._hand._cards.append(card)
+            self._hand.add_card(card)
         else:
             raise ValueError("The pile is empty.")
 
-    def select_card(self, card: Card) -> Card:
-        if card in self._hand.get_hand():
-            self._hand.remove_card(card)
-            return card
-        else:
-            raise ValueError("The player does not have this card.")
+    def calcPoints(self) -> None:
+        self._points += sum(
+            expedition.get_points() for expedition in self._expeditions.values()
+        )
+
+    def getPoints(self) -> int:
+        return self._points

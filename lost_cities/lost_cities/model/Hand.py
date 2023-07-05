@@ -15,3 +15,6 @@ class Hand:
 
     def remove_card(self, card: Card):
         self._cards.remove(card)
+
+    def add_card(self, card: Card) -> None:
+        self._cards.append(card)

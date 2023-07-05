@@ -13,12 +13,9 @@ class Game:
             color: DiscardPile(color)
             for color in ["Red", "Green", "Blue", "White", "Yellow"]
         }
-        self._expeditions = {
-            color: Expedition(color)
-            for color in ["Red", "Green", "Blue", "White", "Yellow"]
-        }
         self._players = [Player(name) for name in player_names]
         self._current_player = self._players[0]
+        self._current_turn = 1
 
     def start(self):
         self._deck.shuffle()
@@ -27,33 +24,34 @@ class Game:
                 player.draw_card(self._deck)
 
     def turn(self, player: Player, action: dict):
-        # {"type": "play" or "discard", "card": card,
-        # "location": color, "draw_from": "deck" or color}
-        card_to_play = action["card"]
-
+        # {"type": "play" or "discard", "card": card, "location": color, "draw_from": "deck" or color}
         if action["type"] == "play":
-            player.play_card(card_to_play, action["location"])
+            player.play_card(action["card"], action["location"])
         elif action["type"] == "discard":
-            player.discard_card(card_to_play, self._discard_piles[action["location"]])
+            discard_pile = self._discard_piles[action["location"]]
+            player.discard_card(action["card"], discard_pile)
+        else:
+            raise ValueError("Invalid action type. Must be 'play' or 'discard'.")
 
         if action["draw_from"] == "deck":
-            player.draw_card(self._deck)
+            if self._deck.get_top_card():
+                player.draw_card(self._deck)
+            else:
+                self.end()
         else:
-            player.draw_card(self._discard_piles[action["draw_from"]])
+            discard_pile = self._discard_piles[action["draw_from"]]
+            player.draw_card(discard_pile)
 
-    def calculate_scores(self):
+        # switch to the next player
+        self._current_player = self._players[
+            (self._players.index(self._current_player) + 1) % len(self._players)
+        ]
+        self._current_turn += 1
+
+    def end(self) -> dict:
         for player in self._players:
-            score = 0
-            for color, expedition in player._expeditions.items():
-                value = sum(card.get_value() for card in expedition._cards)
-                if value > 0:
-                    value -= 20
-                    multipliers = expedition._cards.count(0)
-                    value *= multipliers + 1
-                    if len(expedition._cards) >= 8:
-                        value += 20
-                score += value
-            player._score = score
+            player.getPoints()
+        return {player._name: player.getPoints() for player in self._players}
 
-    def end(self) -> bool:
+    def is_game_over(self) -> bool:
         return self._deck.is_empty()

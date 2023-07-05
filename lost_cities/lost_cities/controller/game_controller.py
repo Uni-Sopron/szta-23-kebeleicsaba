@@ -11,16 +11,21 @@ class GameController:
 
     def start_game(self):
         self.game.start()
+        game_over = False
+        while not game_over:
+            for player_controller in self.player_controllers:
+                action = {}
+                game_over = self.execute_turn(player_controller, action)
+                if game_over:
+                    break
+        self.calculate_scores()
 
     def execute_turn(self, player_controller, action) -> bool:
-        self.game.turn(player_controller.player, action)
+        player_controller.take_turn(self, action)
         return self.game.end()
 
     def draw_card(self, player_controller, location):
         if location == "deck":
             player_controller.draw_card(self.game._deck)
         else:
-            player_controller.draw_card(self.game._discard_piles[location])
-
-    def calculate_scores(self):
-        self.game.calculate_scores()
+            player_controller.draw_card(self.game.discard_pile)
