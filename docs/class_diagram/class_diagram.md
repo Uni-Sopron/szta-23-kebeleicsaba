@@ -3,7 +3,6 @@ classDiagram
     Game --> "*" Player : has
     Game --> "1" Deck : has
     Game --> "5" DiscardPile : has
-    Game --> "*" Expedition : has
     Player --> "1" Hand : has
     Hand --> "*" Card : contains
     Player --> "*" Expedition : has
@@ -15,21 +14,20 @@ classDiagram
       #players
       #deck
       #discardPiles
-      #expeditions
       #currentPlayer
       +start()
       +end()
       +calculateScores()
-      +turn(Player)
+      +turn(Player, dict)
     }
     class Player{
       #name
       #hand
       #expeditions
-      +playCard(Card, Expedition)
+      +playCard(Card, str)
       +discardCard(Card, DiscardPile)
       +drawCard(AbstractPile)
-      +selectCard() : Card
+      +selectCard(Card) : Card
     }
     class AbstractPile{
       #cards
@@ -52,16 +50,16 @@ classDiagram
       +getColor() : str
     }
     class Hand{
+      #cards
       +getHand() : List[Card]
       +hasColor(string) : bool
+      +removeCard(Card)
     }
     class Expedition{
       #cards
       #color
       +addCard(Card)
-      +removeCard(Card)
       +highestValue() : int
-      +containsWager() : bool
       +getColor() : str
     }
 ```
