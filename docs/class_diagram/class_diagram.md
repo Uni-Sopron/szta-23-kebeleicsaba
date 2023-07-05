@@ -1,39 +1,40 @@
 ```mermaid
 classDiagram
-    Game --> "*" Player : has
+    Game --> "2" Player : has
     Game --> "1" Deck : has
     Game --> "5" DiscardPile : has
     Player --> "1" Hand : has
-    Hand --> "*" Card : contains
-    Player --> "*" Expedition : has
+    Player --> "5" Expedition : has
     Expedition --> "*" Card : contains
+    AbstractPile o-- "*" Card : contains
     AbstractPile <|-- Deck
     AbstractPile <|-- DiscardPile
-    AbstractPile <|-- Hand
+    Hand <|-- AbstractPile
     class Game{
       #players
       #deck
       #discardPiles
       #currentPlayer
+      #currentTurn
       +start()
       +end()
-      +calculateScores()
       +turn(Player, dict)
     }
     class Player{
       #name
       #hand
       #expeditions
+      #points
       +playCard(Card, str)
       +discardCard(Card, DiscardPile)
       +drawCard(AbstractPile)
-      +selectCard(Card) : Card
+      +calcPoints()
+      +getPoints()
     }
     class AbstractPile{
       #cards
-      +getTopCard() : Card
+      +drawCard() : Card
       +isEmpty() : bool
-      +shuffle()
     }
     class Card{
       #color
@@ -43,17 +44,20 @@ classDiagram
     }
     class Deck{
       +_init()
-      +shuffle
+      +shuffle()
     }
     class DiscardPile{
       #color
       +getColor() : str
+      +addCard(Card)
+      +displayTopCard()
     }
     class Hand{
       #cards
       +getHand() : List[Card]
       +hasColor(string) : bool
       +removeCard(Card)
+      +addCard(Card)
     }
     class Expedition{
       #cards
