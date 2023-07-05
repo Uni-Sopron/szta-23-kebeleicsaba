@@ -4,7 +4,7 @@ class Card:
         self._value = value
 
     def get_color(self) -> str:
-        pass
+        return self._color
 
-    def get_value(self) -> str:
-        pass
+    def get_value(self) -> int:
+        return self._value
