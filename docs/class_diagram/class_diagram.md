@@ -1,15 +1,14 @@
 ```mermaid
 classDiagram
-    Game --> "2" Player : has
-    Game --> "1" Deck : has
-    Game --> "5" DiscardPile : has
-    Player --> "1" Hand : has
-    Player --> "5" Expedition : has
-    Expedition --> "*" Card : contains
-    AbstractPile o-- "*" Card : contains
+    Game --o "2" Player : has
+    Game --o "1" Deck : has
+    Game --o "5" DiscardPile : has
+    Player --o "1" Hand : has
+    Player --o "5" Expedition : has
+    Expedition --* "*" Card : contains
+    AbstractPile *-- "*" Card : contains
     AbstractPile <|-- Deck
     AbstractPile <|-- DiscardPile
-    Hand <|-- AbstractPile
     class Game{
       #players
       #deck
@@ -26,7 +25,7 @@ classDiagram
       #hand
       #expeditions
       #points
-      +playCard(Card, str)
+      +playCard(Card, Expedition)
       +discardCard(Card, DiscardPile)
       +drawCard(AbstractPile)
       +calcPoints()
@@ -64,7 +63,7 @@ classDiagram
       #cards
       #color
       +addCard(Card)
-      +containsWager() : bool
+      +getAllCards() : List[Card]
       +highestValue() : int
       +getColor() : str
       +getPoints() : int
