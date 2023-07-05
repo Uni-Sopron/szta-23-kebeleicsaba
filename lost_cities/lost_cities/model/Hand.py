@@ -12,3 +12,6 @@ class Hand:
 
     def has_color(self, color: str) -> bool:
         return any(card.get_color() == color for card in self._cards)
+
+    def remove_card(self, card: Card):
+        self._cards.remove(card)
