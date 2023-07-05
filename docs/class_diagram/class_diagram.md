@@ -17,8 +17,9 @@ classDiagram
       #currentPlayer
       #currentTurn
       +start()
-      +end()
+      +end() : dict
       +turn(Player, dict)
+      +isGameOver() : bool
     }
     class Player{
       #name
@@ -63,7 +64,9 @@ classDiagram
       #cards
       #color
       +addCard(Card)
+      +containsWager() : bool
       +highestValue() : int
       +getColor() : str
+      +getPoints() : int
     }
 ```
