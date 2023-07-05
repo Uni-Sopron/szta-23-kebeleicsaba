@@ -4,28 +4,62 @@ from .Card import Card
 
 
 class Expedition:
-    def __init__(self, color: str) -> None:
+    """
+    Az Expedíció osztály egy adott színhez tartozó lapok sora.
+    """
+
+    def __init__(self, color: str):
+        """
+        Inicializálja az expedíciót egy adott színnel.
+
+        Args:
+            color (str): Az expedíció színe.
+        """
         self._cards: List[Card] = []
         self._color = color
 
-    def add_card(self, card: Card) -> None:
+    def add_card(self, card: Card):
+        """
+        Hozzáad egy lapot az expedícióhoz.
+
+        Args:
+            card (Card): A lap, melyet hozzáadunk az expedícióhoz.
+        """
         self._cards.append(card)
 
-    def remove_card(self, card: Card) -> None:
+    def remove_card(self, card: Card):
+        """
+        Eltávolít egy lapot az expedícióból.
+        """
         self._cards.remove(card)
 
-    def contains_wager(self) -> bool:
-        return any(card.get_value() == 0 for card in self._cards)
-
     def highest_value(self) -> int:
+        """
+        Visszaadja az expedícióban lévő utolsó lapot, ami legmagasabb értékű is egyben.
+
+        Returns:
+            int: a legnagyobb érték
+        """
         if not self._cards:
             return 0
         return self._cards[-1].get_value()
 
     def get_color(self) -> str:
+        """
+        Visszaadja az expedíció színét.
+
+        Returns:
+            str: Az expedíció színe.
+        """
         return self._color
 
     def get_points(self) -> int:
+        """
+        Kiszámítja és visszaadja az expedíció pontszámát.
+
+        Returns:
+            int: Az expedíció értéke pontszámba.
+        """
         if not self._cards:
             return 0
 
