@@ -23,14 +23,11 @@ class AbstractPile:
         """
         return len(self._cards) == 0
 
-    def get_top_card(self) -> Optional[Card]:
+    def get_top_card(self) -> Card:
         """
         Lekéri a pakli tetején lévő kártyát. Ha a pakli üres, akkor None-t ad vissza.
 
         Returns:
             Optional[Card]: A pakli tetején lévő kártya, vagy None, ha a pakli üres.
         """
-        if self.is_empty():
-            return None
-        else:
-            return self._cards.pop()
+        return self._cards.pop()

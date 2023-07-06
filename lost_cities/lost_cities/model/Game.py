@@ -2,12 +2,21 @@ from typing import List
 
 from .Deck import Deck
 from .DiscardPile import DiscardPile
-from .Expedition import Expedition
 from .Player import Player
 
 
 class Game:
+    """
+    A játék irányításáért felelős osztály.
+    """
+
     def __init__(self, player_names: List[str]):
+        """
+        Játék osztály létrehozása.
+
+        Args:
+            player_names (List[str]): A játékosok neveinek listája.
+        """
         self._deck = Deck()
         self._discard_piles = {
             color: DiscardPile(color)
@@ -17,41 +26,37 @@ class Game:
         self._current_player = self._players[0]
         self._current_turn = 1
 
-    def start(self):
+    def setup(self):
+        """
+        Beállítja a játék kezdő állapotát, azaz megkeveri a paklit és minden játékosnak oszt 8 lapot.
+        """
         self._deck.shuffle()
         for player in self._players:
             for _ in range(8):
                 player.draw_card(self._deck)
 
-    def turn(self, player: Player, action: dict):
-        # {"type": "play" or "discard", "card": card, "location": color, "draw_from": "deck" or color}
-        if action["type"] == "play":
-            player.play_card(action["card"], action["location"])
-        elif action["type"] == "discard":
-            discard_pile = self._discard_piles[action["location"]]
-            player.discard_card(action["card"], discard_pile)
-        else:
-            raise ValueError("Invalid action type. Must be 'play' or 'discard'.")
-
-        if action["draw_from"] == "deck":
-            if self._deck.get_top_card():
-                player.draw_card(self._deck)
-            else:
-                self.end()
-        else:
-            discard_pile = self._discard_piles[action["draw_from"]]
-            player.draw_card(discard_pile)
-
-        # switch to the next player
-        self._current_player = self._players[
-            (self._players.index(self._current_player) + 1) % len(self._players)
-        ]
-        self._current_turn += 1
+    def turn(self):
+        """
+        Egy játékos körének lebonyolítása.
+        """
+        pass
 
     def end(self) -> dict:
+        """
+        Befejezi a játékot, visszaadja a játékosok pontjait.
+
+        Returns:
+            dict: Egy dict, ahol kulcsok a játékosok nevei, az értékek pedig a játékosok pontjai.
+        """
         for player in self._players:
             player.getPoints()
         return {player._name: player.getPoints() for player in self._players}
 
     def is_game_over(self) -> bool:
+        """
+        Megvizsgálja, hogy vége van-e már a játéknak.
+
+        Returns:
+            bool: Igaz, ha a játéknak vége (a pakli üres), egyébként hamis.
+        """
         return self._deck.is_empty()
