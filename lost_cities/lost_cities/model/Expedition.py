@@ -71,6 +71,8 @@ class Expedition:
         base_score *= wager_multiplier
 
         if len(self._cards) >= 8:
-            base_score += 20
+            base_score += (
+                20 * wager_multiplier
+            )  # A bónuszpontokat is meg kell szorozni a zálogkártyák számával
 
         return base_score

@@ -1,3 +1,5 @@
+from typing import Optional
+
 from .AbstractPile import AbstractPile
 from .Card import Card
 
@@ -32,11 +34,11 @@ class DiscardPile(AbstractPile):
         """
         self._cards.append(card)
 
-    def display_top_card(self) -> Card:
+    def display_top_card(self) -> Optional[Card]:
         """
         Visszaadja a pakli tetején lévő lapot.
 
         Returns:
-            Card: A pakli tetején lévő lap
+            Optional[Card]: A pakli tetején lévő lap, vagy `None`, ha a pakli üres.
         """
-        return self._cards[-1]
+        return self._cards[-1] if self._cards else None
