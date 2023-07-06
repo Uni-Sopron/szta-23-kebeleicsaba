@@ -2,15 +2,13 @@
 graph TB
     Start((Start)) --> Setup[Setup Game]
     
-    Setup -->|Shuffle Cards, Deal the Cards| PlayerSwitch[Switch Player]
+    Setup -->|Shuffle Cards, Deal the Cards| GameLoop[Game Loop Start]
     
-    PlayerSwitch --> GameLoop[Game Loop Start]
-    
-    GameLoop --> PlayerDecision{Player Decision}
-    
-    PlayerDecision -->|Play a Card| HasPlayableCard{Has Playable Card Of Any Color?}
+    GameLoop --> HasPlayableCard{Has Playable Card Of Any Color?}
     HasPlayableCard -- No --> DiscardCard[Discard Card]
-    HasPlayableCard -- Yes --> ChooseColorAndCard[Choose Color and Card from Hand]
+    HasPlayableCard -- Yes --> PlayerDecision{Player Decision}
+    
+    PlayerDecision -->|Play a Card| ChooseColorAndCard[Choose Color and Card from Hand]
     ChooseColorAndCard --> IsCardGreater{Is Card Value Greater Than Top Card?}
     IsCardGreater -- No --> ChooseColorAndCard
     IsCardGreater -- Yes --> PlaceCard[Place Card on Pile]
@@ -31,6 +29,7 @@ graph TB
     EndTurn --> Scoring[Scoring]
     Scoring --> IsLastCard{Is the Last Card Drawn?}
     IsLastCard -- No --> PlayerSwitch
+    PlayerSwitch --> GameLoop[Game Loop Start]
     IsLastCard -- Yes --> IsFinalRound{Is this the Final Round?}
     IsFinalRound -- No --> Setup
     IsFinalRound -- Yes --> FinalScoring[Final Scoring]
