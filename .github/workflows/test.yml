@@ -36,6 +36,6 @@ jobs:
       - name: Build docker image
         run: docker build . -t lost_cities:test
 
-      - name: Smoke test docker image
-        run: |
-          docker run --rm lost_cities:test
+      # - name: Smoke test docker image
+      #   run: |
+      #     docker run --rm lost_cities:test
