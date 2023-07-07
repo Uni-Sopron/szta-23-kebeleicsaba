@@ -1,1 +1,14 @@
-[![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-f4981d0f882b2a3f0472912d15f9806d57e124e0fc890972558857b51b24a6f9.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=10435207)
+# lost_cities
+
+## Setup
+```sh
+# Install dependencies
+pipenv install --dev
+
+# Setup pre-commit and pre-push hooks
+pipenv run pre-commit install -t pre-commit
+pipenv run pre-commit install -t pre-push
+```
+
+## Credits
+This package was created with Cookiecutter and the [sourcery-ai/python-best-practices-cookiecutter](https://github.com/sourcery-ai/python-best-practices-cookiecutter) project template.

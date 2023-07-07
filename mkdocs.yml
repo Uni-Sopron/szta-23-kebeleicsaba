@@ -1,0 +1,21 @@
+site_name: 'Lost Cities Documentation'
+
+nav:
+    - Description: 'index.md'
+    - Activity Chart: 'activity_chart.md'
+    - Class Diagram: 'class_diagram.md'
+    - API Reference: 
+        - lost_cities: 'lost_cities.md'
+
+theme: readthedocs
+
+plugins:
+    - search
+    - mkdocstrings:
+        default_handler: python
+        handlers:
+            python:
+                selection:
+                    recursive: true
+                rendering:
+                    show_source: true
