@@ -87,7 +87,7 @@ class Player:
         else:
             self._hand.add_card(pile.get_top_card())
 
-    def calcPoints(self) -> None:
+    def calc_points(self) -> None:
         """
         Kiszámolja a játékos pontjait az összes expedíciók a pontjai alapján és hozzáadja az eddigi pontszámhoz.
         """
@@ -95,7 +95,7 @@ class Player:
             expedition.get_points() for expedition in self._expeditions.values()
         )
 
-    def getPoints(self) -> int:
+    def get_points(self) -> int:
         """
         Visszaadja a játékos pontjait.
 

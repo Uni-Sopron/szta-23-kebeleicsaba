@@ -35,12 +35,6 @@ class Game:
             for _ in range(8):
                 player.draw_card(self._deck)
 
-    def turn(self):
-        """
-        Egy játékos körének lebonyolítása.
-        """
-        pass
-
     def end(self) -> dict:
         """
         Befejezi a játékot, visszaadja a játékosok pontjait.
@@ -49,8 +43,8 @@ class Game:
             dict: Egy dict, ahol kulcsok a játékosok nevei, az értékek pedig a játékosok pontjai.
         """
         for player in self._players:
-            player.getPoints()
-        return {player._name: player.getPoints() for player in self._players}
+            player.get_points()
+        return {player._name: player.get_points() for player in self._players}
 
     def is_game_over(self) -> bool:
         """

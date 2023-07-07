@@ -63,16 +63,12 @@ class Expedition:
         if not self._cards:
             return 0
 
-        base_score = sum(
-            card.get_value() for card in self._cards if card.get_value() != 0
-        )
+        base_score = sum(map(Card.get_value, self._cards))
         base_score -= 20
-        wager_multiplier = sum(1 for card in self._cards if card.get_value() == 0) + 1
+        wager_multiplier = sum(card.get_value() == 0 for card in self._cards) + 1
         base_score *= wager_multiplier
 
         if len(self._cards) >= 8:
-            base_score += (
-                20 * wager_multiplier
-            )  # A bónuszpontokat is meg kell szorozni a zálogkártyák számával
+            base_score += 20
 
         return base_score
