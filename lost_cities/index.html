@@ -1,0 +1,2751 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>lost_cities - Lost Cities Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "lost_cities";
+        var mkdocs_page_input_path = "lost_cities.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Lost Cities Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Description</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../activity_chart/">Activity Chart</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../class_diagram/">Class Diagram</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API Reference</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">lost_cities</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#model">Model</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#lost_cities.model.Card">lost_cities.model.Card</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#lost_cities.model.Card.Card">Card</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#lost_cities.model.Card.Card.__init__">__init__()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#lost_cities.model.Card.Card.get_color">get_color()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#lost_cities.model.Card.Card.get_value">get_value()</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#lost_cities.model.AbstractPile">lost_cities.model.AbstractPile</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#lost_cities.model.AbstractPile.AbstractPile">AbstractPile</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#lost_cities.model.AbstractPile.AbstractPile.__init__">__init__()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#lost_cities.model.AbstractPile.AbstractPile.get_top_card">get_top_card()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#lost_cities.model.AbstractPile.AbstractPile.is_empty">is_empty()</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#lost_cities.model.Deck">lost_cities.model.Deck</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#lost_cities.model.Deck.Deck">Deck</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#lost_cities.model.Deck.Deck.__init__">__init__()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#lost_cities.model.Deck.Deck.shuffle">shuffle()</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#lost_cities.model.Expedition">lost_cities.model.Expedition</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#lost_cities.model.Expedition.Expedition">Expedition</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#lost_cities.model.Expedition.Expedition.__init__">__init__()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#lost_cities.model.Expedition.Expedition.add_card">add_card()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#lost_cities.model.Expedition.Expedition.get_color">get_color()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#lost_cities.model.Expedition.Expedition.get_points">get_points()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#lost_cities.model.Expedition.Expedition.highest_value">highest_value()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#lost_cities.model.Expedition.Expedition.remove_card">remove_card()</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#lost_cities.model.Hand">lost_cities.model.Hand</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#lost_cities.model.Hand.Hand">Hand</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#lost_cities.model.Hand.Hand.__init__">__init__()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#lost_cities.model.Hand.Hand.add_card">add_card()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#lost_cities.model.Hand.Hand.get_hand">get_hand()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#lost_cities.model.Hand.Hand.has_color">has_color()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#lost_cities.model.Hand.Hand.remove_card">remove_card()</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#lost_cities.model.Player">lost_cities.model.Player</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#lost_cities.model.Player.Player">Player</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#lost_cities.model.Player.Player.__init__">__init__()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#lost_cities.model.Player.Player.calc_points">calc_points()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#lost_cities.model.Player.Player.discard_card">discard_card()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#lost_cities.model.Player.Player.draw_card">draw_card()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#lost_cities.model.Player.Player.get_hand">get_hand()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#lost_cities.model.Player.Player.get_points">get_points()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#lost_cities.model.Player.Player.play_card">play_card()</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#controller">Controller</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#lost_cities.controller.game_controller">lost_cities.controller.game_controller</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#view">View</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#lost_cities.view.console_view">lost_cities.view.console_view</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#lost_cities.view.console_view.ConsoleView">ConsoleView</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#lost_cities.view.console_view.ConsoleView.__init__">__init__()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#lost_cities.view.console_view.ConsoleView.get_card_from_hand">get_card_from_hand()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#lost_cities.view.console_view.ConsoleView.get_player_decision">get_player_decision()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#lost_cities.view.console_view.ConsoleView.get_player_names">get_player_names()</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Lost Cities Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+          <li>API Reference &raquo;</li>
+      <li>lost_cities</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="lost-cities-documentation">Lost Cities Documentation</h1>
+<h2 id="model">Model</h2>
+
+
+<div class="doc doc-object doc-module">
+
+
+<a id="lost_cities.model.Card"></a>
+  <div class="doc doc-contents first">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="lost_cities.model.Card.Card" class="doc doc-heading">
+        <code>Card</code>
+
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p>A Card osztály regy kártyát eprezentál, amelynek van színe és értéke.</p>
+
+
+        <details class="quote">
+          <summary>Source code in <code>lost_cities/model/Card.py</code></summary>
+          <pre class="highlight"><code class="language-python">class Card:
+    """
+    A Card osztály regy kártyát eprezentál, amelynek van színe és értéke.
+    """
+
+    def __init__(self, color: str, value: int):
+        """
+        Létrehoz egy új kártyát a megadott színnel és értékkel.
+
+        Args:
+            color (str): A kártya színe.
+            value (int): A kártya értéke.
+        """
+        self._color = color
+        self._value = value
+
+    def get_color(self) -&gt; str:
+        """
+        Lekéri a kártya színét.
+
+        Returns:
+            str: A kártya színe.
+        """
+        return self._color
+
+    def get_value(self) -&gt; int:
+        """
+        Lekéri a kártya értékét.
+
+        Returns:
+            int: A kártya értéke.
+        """
+        return self._value</code></pre>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lost_cities.model.Card.Card.__init__" class="doc doc-heading">
+<code class="highlight language-python">__init__(color, value)</code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Létrehoz egy új kártyát a megadott színnel és értékkel.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b>color</b>
+                  (<code>str</code>)
+              –
+              <div class="doc-md-description">
+                <p>A kártya színe.</p>
+              </div>
+            </li>
+            <li>
+              <b>value</b>
+                  (<code>int</code>)
+              –
+              <div class="doc-md-description">
+                <p>A kártya értéke.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+      <details class="quote">
+        <summary>Source code in <code>lost_cities/model/Card.py</code></summary>
+        <pre class="highlight"><code class="language-python">def __init__(self, color: str, value: int):
+    """
+    Létrehoz egy új kártyát a megadott színnel és értékkel.
+
+    Args:
+        color (str): A kártya színe.
+        value (int): A kártya értéke.
+    """
+    self._color = color
+    self._value = value</code></pre>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lost_cities.model.Card.Card.get_color" class="doc doc-heading">
+<code class="highlight language-python">get_color()</code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Lekéri a kártya színét.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
+<b>str</b>(                <code>str</code>
+)            –
+            <div class="doc-md-description">
+              <p>A kártya színe.</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+      <details class="quote">
+        <summary>Source code in <code>lost_cities/model/Card.py</code></summary>
+        <pre class="highlight"><code class="language-python">def get_color(self) -&gt; str:
+    """
+    Lekéri a kártya színét.
+
+    Returns:
+        str: A kártya színe.
+    """
+    return self._color</code></pre>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lost_cities.model.Card.Card.get_value" class="doc doc-heading">
+<code class="highlight language-python">get_value()</code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Lekéri a kártya értékét.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
+<b>int</b>(                <code>int</code>
+)            –
+            <div class="doc-md-description">
+              <p>A kártya értéke.</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+      <details class="quote">
+        <summary>Source code in <code>lost_cities/model/Card.py</code></summary>
+        <pre class="highlight"><code class="language-python">def get_value(self) -&gt; int:
+    """
+    Lekéri a kártya értékét.
+
+    Returns:
+        int: A kártya értéke.
+    """
+    return self._value</code></pre>
+      </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+<a id="lost_cities.model.AbstractPile"></a>
+  <div class="doc doc-contents first">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="lost_cities.model.AbstractPile.AbstractPile" class="doc doc-heading">
+        <code>AbstractPile</code>
+
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p>Az AbstractPile a kártya paklik absztrakt osztálya</p>
+
+
+        <details class="quote">
+          <summary>Source code in <code>lost_cities/model/AbstractPile.py</code></summary>
+          <pre class="highlight"><code class="language-python">class AbstractPile:
+    """
+    Az AbstractPile a kártya paklik absztrakt osztálya
+    """
+
+    def __init__(self) -&gt; None:
+        """
+        Inicializálja a paklit egy üres listaként.
+        """
+        self._cards: List[Card] = []
+
+    def is_empty(self) -&gt; bool:
+        """
+        Megvizsgálja, hogy a pakli üres-e.
+
+        Returns:
+            bool: Igaz, ha a pakli üres. ellenkező esetben hamis.
+        """
+        return len(self._cards) == 0
+
+    def get_top_card(self) -&gt; Card:
+        """
+        Lekéri a pakli tetején lévő kártyát. Ha a pakli üres, akkor None-t ad vissza.
+
+        Returns:
+            Optional[Card]: A pakli tetején lévő kártya, vagy None, ha a pakli üres.
+        """
+        return self._cards.pop()</code></pre>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lost_cities.model.AbstractPile.AbstractPile.__init__" class="doc doc-heading">
+<code class="highlight language-python">__init__()</code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Inicializálja a paklit egy üres listaként.</p>
+
+      <details class="quote">
+        <summary>Source code in <code>lost_cities/model/AbstractPile.py</code></summary>
+        <pre class="highlight"><code class="language-python">def __init__(self) -&gt; None:
+    """
+    Inicializálja a paklit egy üres listaként.
+    """
+    self._cards: List[Card] = []</code></pre>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lost_cities.model.AbstractPile.AbstractPile.get_top_card" class="doc doc-heading">
+<code class="highlight language-python">get_top_card()</code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Lekéri a pakli tetején lévő kártyát. Ha a pakli üres, akkor None-t ad vissza.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
+                <code><a class="autorefs autorefs-internal" title="lost_cities.model.Card.Card" href="#lost_cities.model.Card.Card">Card</a></code>
+            –
+            <div class="doc-md-description">
+              <p>Optional[Card]: A pakli tetején lévő kártya, vagy None, ha a pakli üres.</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+      <details class="quote">
+        <summary>Source code in <code>lost_cities/model/AbstractPile.py</code></summary>
+        <pre class="highlight"><code class="language-python">def get_top_card(self) -&gt; Card:
+    """
+    Lekéri a pakli tetején lévő kártyát. Ha a pakli üres, akkor None-t ad vissza.
+
+    Returns:
+        Optional[Card]: A pakli tetején lévő kártya, vagy None, ha a pakli üres.
+    """
+    return self._cards.pop()</code></pre>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lost_cities.model.AbstractPile.AbstractPile.is_empty" class="doc doc-heading">
+<code class="highlight language-python">is_empty()</code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Megvizsgálja, hogy a pakli üres-e.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
+<b>bool</b>(                <code>bool</code>
+)            –
+            <div class="doc-md-description">
+              <p>Igaz, ha a pakli üres. ellenkező esetben hamis.</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+      <details class="quote">
+        <summary>Source code in <code>lost_cities/model/AbstractPile.py</code></summary>
+        <pre class="highlight"><code class="language-python">def is_empty(self) -&gt; bool:
+    """
+    Megvizsgálja, hogy a pakli üres-e.
+
+    Returns:
+        bool: Igaz, ha a pakli üres. ellenkező esetben hamis.
+    """
+    return len(self._cards) == 0</code></pre>
+      </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+<a id="lost_cities.model.Deck"></a>
+  <div class="doc doc-contents first">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="lost_cities.model.Deck.Deck" class="doc doc-heading">
+        <code>Deck</code>
+
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+      <p class="doc doc-class-bases">
+        Bases: <code><a class="autorefs autorefs-internal" title="lost_cities.model.AbstractPile.AbstractPile" href="#lost_cities.model.AbstractPile.AbstractPile">AbstractPile</a></code></p>
+
+  
+      <p>A pakli osztály, amelyben kezdetben a játék összes lapja található.</p>
+
+
+        <details class="quote">
+          <summary>Source code in <code>lost_cities/model/Deck.py</code></summary>
+          <pre class="highlight"><code class="language-python">class Deck(AbstractPile):
+    """
+    A pakli osztály, amelyben kezdetben a játék összes lapja található.
+    """
+
+    def __init__(self):
+        """
+        Inicializálja a paklit, feltöltve azt a kezdeti lapokkal.
+        """
+        super().__init__()
+        self._init()
+
+    def _init(self):
+        """
+        Feltölti a paklit a játék kezdetén.
+        """
+        colors = ["Red", "Green", "Blue", "White", "Yellow"]
+        for color in colors:
+            for i in range(2, 11):
+                self._cards.append(Card(color, i))
+            for _ in range(3):
+                self._cards.append(Card(color, 0))
+
+    def shuffle(self):
+        """
+        Megkeveri a paklit.
+        """
+        random.shuffle(self._cards)</code></pre>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lost_cities.model.Deck.Deck.__init__" class="doc doc-heading">
+<code class="highlight language-python">__init__()</code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Inicializálja a paklit, feltöltve azt a kezdeti lapokkal.</p>
+
+      <details class="quote">
+        <summary>Source code in <code>lost_cities/model/Deck.py</code></summary>
+        <pre class="highlight"><code class="language-python">def __init__(self):
+    """
+    Inicializálja a paklit, feltöltve azt a kezdeti lapokkal.
+    """
+    super().__init__()
+    self._init()</code></pre>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lost_cities.model.Deck.Deck.shuffle" class="doc doc-heading">
+<code class="highlight language-python">shuffle()</code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Megkeveri a paklit.</p>
+
+      <details class="quote">
+        <summary>Source code in <code>lost_cities/model/Deck.py</code></summary>
+        <pre class="highlight"><code class="language-python">def shuffle(self):
+    """
+    Megkeveri a paklit.
+    """
+    random.shuffle(self._cards)</code></pre>
+      </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+<a id="lost_cities.model.Expedition"></a>
+  <div class="doc doc-contents first">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="lost_cities.model.Expedition.Expedition" class="doc doc-heading">
+        <code>Expedition</code>
+
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p>Az Expedíció osztály egy adott színhez tartozó lapok sora.</p>
+
+
+        <details class="quote">
+          <summary>Source code in <code>lost_cities/model/Expedition.py</code></summary>
+          <pre class="highlight"><code class="language-python">class Expedition:
+    """
+    Az Expedíció osztály egy adott színhez tartozó lapok sora.
+    """
+
+    def __init__(self, color: str):
+        """
+        Inicializálja az expedíciót egy adott színnel.
+
+        Args:
+            color (str): Az expedíció színe.
+        """
+        self._cards: List[Card] = []
+        self._color = color
+
+    def add_card(self, card: Card):
+        """
+        Hozzáad egy lapot az expedícióhoz.
+
+        Args:
+            card (Card): A lap, melyet hozzáadunk az expedícióhoz.
+        """
+        self._cards.append(card)
+
+    def remove_card(self, card: Card):
+        """
+        Eltávolít egy lapot az expedícióból.
+        """
+        self._cards.remove(card)
+
+    def highest_value(self) -&gt; int:
+        """
+        Visszaadja az expedícióban lévő utolsó lapot, ami legmagasabb értékű is egyben.
+
+        Returns:
+            int: a legnagyobb érték
+        """
+        if not self._cards:
+            return 0
+        return self._cards[-1].get_value()
+
+    def get_color(self) -&gt; str:
+        """
+        Visszaadja az expedíció színét.
+
+        Returns:
+            str: Az expedíció színe.
+        """
+        return self._color
+
+    def get_points(self) -&gt; int:
+        """
+        Kiszámítja és visszaadja az expedíció pontszámát.
+
+        Returns:
+            int: Az expedíció értéke pontszámba.
+        """
+        if not self._cards:
+            return 0
+
+        base_score = sum(map(Card.get_value, self._cards))
+        base_score -= 20
+        wager_multiplier = sum(card.get_value() == 0 for card in self._cards) + 1
+        base_score *= wager_multiplier
+
+        if len(self._cards) &gt;= 8:
+            base_score += 20
+
+        return base_score
+
+    def get_expedition(self):
+        return self._cards</code></pre>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lost_cities.model.Expedition.Expedition.__init__" class="doc doc-heading">
+<code class="highlight language-python">__init__(color)</code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Inicializálja az expedíciót egy adott színnel.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b>color</b>
+                  (<code>str</code>)
+              –
+              <div class="doc-md-description">
+                <p>Az expedíció színe.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+      <details class="quote">
+        <summary>Source code in <code>lost_cities/model/Expedition.py</code></summary>
+        <pre class="highlight"><code class="language-python">def __init__(self, color: str):
+    """
+    Inicializálja az expedíciót egy adott színnel.
+
+    Args:
+        color (str): Az expedíció színe.
+    """
+    self._cards: List[Card] = []
+    self._color = color</code></pre>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lost_cities.model.Expedition.Expedition.add_card" class="doc doc-heading">
+<code class="highlight language-python">add_card(card)</code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Hozzáad egy lapot az expedícióhoz.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b>card</b>
+                  (<code><a class="autorefs autorefs-internal" title="lost_cities.model.Card.Card" href="#lost_cities.model.Card.Card">Card</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>A lap, melyet hozzáadunk az expedícióhoz.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+      <details class="quote">
+        <summary>Source code in <code>lost_cities/model/Expedition.py</code></summary>
+        <pre class="highlight"><code class="language-python">def add_card(self, card: Card):
+    """
+    Hozzáad egy lapot az expedícióhoz.
+
+    Args:
+        card (Card): A lap, melyet hozzáadunk az expedícióhoz.
+    """
+    self._cards.append(card)</code></pre>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lost_cities.model.Expedition.Expedition.get_color" class="doc doc-heading">
+<code class="highlight language-python">get_color()</code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Visszaadja az expedíció színét.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
+<b>str</b>(                <code>str</code>
+)            –
+            <div class="doc-md-description">
+              <p>Az expedíció színe.</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+      <details class="quote">
+        <summary>Source code in <code>lost_cities/model/Expedition.py</code></summary>
+        <pre class="highlight"><code class="language-python">def get_color(self) -&gt; str:
+    """
+    Visszaadja az expedíció színét.
+
+    Returns:
+        str: Az expedíció színe.
+    """
+    return self._color</code></pre>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lost_cities.model.Expedition.Expedition.get_points" class="doc doc-heading">
+<code class="highlight language-python">get_points()</code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Kiszámítja és visszaadja az expedíció pontszámát.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
+<b>int</b>(                <code>int</code>
+)            –
+            <div class="doc-md-description">
+              <p>Az expedíció értéke pontszámba.</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+      <details class="quote">
+        <summary>Source code in <code>lost_cities/model/Expedition.py</code></summary>
+        <pre class="highlight"><code class="language-python">def get_points(self) -&gt; int:
+    """
+    Kiszámítja és visszaadja az expedíció pontszámát.
+
+    Returns:
+        int: Az expedíció értéke pontszámba.
+    """
+    if not self._cards:
+        return 0
+
+    base_score = sum(map(Card.get_value, self._cards))
+    base_score -= 20
+    wager_multiplier = sum(card.get_value() == 0 for card in self._cards) + 1
+    base_score *= wager_multiplier
+
+    if len(self._cards) &gt;= 8:
+        base_score += 20
+
+    return base_score</code></pre>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lost_cities.model.Expedition.Expedition.highest_value" class="doc doc-heading">
+<code class="highlight language-python">highest_value()</code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Visszaadja az expedícióban lévő utolsó lapot, ami legmagasabb értékű is egyben.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
+<b>int</b>(                <code>int</code>
+)            –
+            <div class="doc-md-description">
+              <p>a legnagyobb érték</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+      <details class="quote">
+        <summary>Source code in <code>lost_cities/model/Expedition.py</code></summary>
+        <pre class="highlight"><code class="language-python">def highest_value(self) -&gt; int:
+    """
+    Visszaadja az expedícióban lévő utolsó lapot, ami legmagasabb értékű is egyben.
+
+    Returns:
+        int: a legnagyobb érték
+    """
+    if not self._cards:
+        return 0
+    return self._cards[-1].get_value()</code></pre>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lost_cities.model.Expedition.Expedition.remove_card" class="doc doc-heading">
+<code class="highlight language-python">remove_card(card)</code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Eltávolít egy lapot az expedícióból.</p>
+
+      <details class="quote">
+        <summary>Source code in <code>lost_cities/model/Expedition.py</code></summary>
+        <pre class="highlight"><code class="language-python">def remove_card(self, card: Card):
+    """
+    Eltávolít egy lapot az expedícióból.
+    """
+    self._cards.remove(card)</code></pre>
+      </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+<a id="lost_cities.model.Hand"></a>
+  <div class="doc doc-contents first">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="lost_cities.model.Hand.Hand" class="doc doc-heading">
+        <code>Hand</code>
+
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+
+
+
+        <details class="quote">
+          <summary>Source code in <code>lost_cities/model/Hand.py</code></summary>
+          <pre class="highlight"><code class="language-python">class Hand:
+    def __init__(self) -&gt; None:
+        """
+        Kéz osztály létrehozása. A kézben lévő lapokat tárolja.
+        """
+        self._cards: List[Card] = []
+
+    def get_hand(self) -&gt; list:
+        """
+        Visszaadja a kézben lévő lapokat.
+
+        Returns:
+            list: A kézben lévő lapok listája.
+        """
+        return self._cards
+
+    def has_color(self, color: str) -&gt; bool:
+        """
+        Megvizsgálja, hogy a kézben van-e adott színű lap.
+
+        Args:
+            color (str): A keresett lap színe.
+
+        Returns:
+            bool: Igaz, ha van a kézben adott színű lap, egyébként hamis.
+        """
+        return any(card.get_color() == color for card in self._cards)
+
+    def remove_card(self, card: Card):
+        """
+        Eltávolít egy lapot a kézből.
+
+        Args:
+            card (Card): Az eltávolítandó lap.
+        """
+        self._cards.remove(card)
+
+    def add_card(self, card: Card) -&gt; None:
+        """
+        Hozzáad egy lapot a kézhez.
+
+        Args:
+            card (Card): A hozzáadandó lap.
+        """
+        self._cards.append(card)</code></pre>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lost_cities.model.Hand.Hand.__init__" class="doc doc-heading">
+<code class="highlight language-python">__init__()</code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Kéz osztály létrehozása. A kézben lévő lapokat tárolja.</p>
+
+      <details class="quote">
+        <summary>Source code in <code>lost_cities/model/Hand.py</code></summary>
+        <pre class="highlight"><code class="language-python">def __init__(self) -&gt; None:
+    """
+    Kéz osztály létrehozása. A kézben lévő lapokat tárolja.
+    """
+    self._cards: List[Card] = []</code></pre>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lost_cities.model.Hand.Hand.add_card" class="doc doc-heading">
+<code class="highlight language-python">add_card(card)</code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Hozzáad egy lapot a kézhez.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b>card</b>
+                  (<code><a class="autorefs autorefs-internal" title="lost_cities.model.Card.Card" href="#lost_cities.model.Card.Card">Card</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>A hozzáadandó lap.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+      <details class="quote">
+        <summary>Source code in <code>lost_cities/model/Hand.py</code></summary>
+        <pre class="highlight"><code class="language-python">def add_card(self, card: Card) -&gt; None:
+    """
+    Hozzáad egy lapot a kézhez.
+
+    Args:
+        card (Card): A hozzáadandó lap.
+    """
+    self._cards.append(card)</code></pre>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lost_cities.model.Hand.Hand.get_hand" class="doc doc-heading">
+<code class="highlight language-python">get_hand()</code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Visszaadja a kézben lévő lapokat.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
+<b>list</b>(                <code>list</code>
+)            –
+            <div class="doc-md-description">
+              <p>A kézben lévő lapok listája.</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+      <details class="quote">
+        <summary>Source code in <code>lost_cities/model/Hand.py</code></summary>
+        <pre class="highlight"><code class="language-python">def get_hand(self) -&gt; list:
+    """
+    Visszaadja a kézben lévő lapokat.
+
+    Returns:
+        list: A kézben lévő lapok listája.
+    """
+    return self._cards</code></pre>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lost_cities.model.Hand.Hand.has_color" class="doc doc-heading">
+<code class="highlight language-python">has_color(color)</code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Megvizsgálja, hogy a kézben van-e adott színű lap.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b>color</b>
+                  (<code>str</code>)
+              –
+              <div class="doc-md-description">
+                <p>A keresett lap színe.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
+<b>bool</b>(                <code>bool</code>
+)            –
+            <div class="doc-md-description">
+              <p>Igaz, ha van a kézben adott színű lap, egyébként hamis.</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+      <details class="quote">
+        <summary>Source code in <code>lost_cities/model/Hand.py</code></summary>
+        <pre class="highlight"><code class="language-python">def has_color(self, color: str) -&gt; bool:
+    """
+    Megvizsgálja, hogy a kézben van-e adott színű lap.
+
+    Args:
+        color (str): A keresett lap színe.
+
+    Returns:
+        bool: Igaz, ha van a kézben adott színű lap, egyébként hamis.
+    """
+    return any(card.get_color() == color for card in self._cards)</code></pre>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lost_cities.model.Hand.Hand.remove_card" class="doc doc-heading">
+<code class="highlight language-python">remove_card(card)</code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Eltávolít egy lapot a kézből.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b>card</b>
+                  (<code><a class="autorefs autorefs-internal" title="lost_cities.model.Card.Card" href="#lost_cities.model.Card.Card">Card</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>Az eltávolítandó lap.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+      <details class="quote">
+        <summary>Source code in <code>lost_cities/model/Hand.py</code></summary>
+        <pre class="highlight"><code class="language-python">def remove_card(self, card: Card):
+    """
+    Eltávolít egy lapot a kézből.
+
+    Args:
+        card (Card): Az eltávolítandó lap.
+    """
+    self._cards.remove(card)</code></pre>
+      </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+<a id="lost_cities.model.Player"></a>
+  <div class="doc doc-contents first">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="lost_cities.model.Player.Player" class="doc doc-heading">
+        <code>Player</code>
+
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p>A játékos osztály.</p>
+
+
+        <details class="quote">
+          <summary>Source code in <code>lost_cities/model/Player.py</code></summary>
+          <pre class="highlight"><code class="language-python">class Player:
+    """
+    A játékos osztály.
+    """
+
+    def __init__(self, name: str) -&gt; None:
+        """
+        Játékos osztály létrehozása.
+
+        Args:
+            name (str): A játékos neve.
+        """
+        self._name = name
+        self._hand = Hand()
+        self._expeditions = {
+            color: Expedition(color)
+            for color in ["Red", "Green", "Blue", "White", "Yellow"]
+        }
+        self._points = 0
+
+    def play_card(self, card: Card, expedition: str) -&gt; None:
+        """
+        Kijátsza a kártyát egy expedícióra.
+
+        Args:
+            card (Card): A kijátszanó kártya.
+            expedition (str): Az expedíció színe, ahová a kártyát ki szeretnénk játszani.
+
+        Raises:
+            ValueError: Ha a játékosnak nincs ilyen kártyája, a kártya színe nem egyezik az expedíció színével,
+                        vagy a kártya értéke kisebb mint az expedíció legnagyobb kártyájának értéke.
+        """
+        if card in self._hand.get_hand():
+            if card.get_color() == expedition:
+                if (
+                    card.get_value() &gt; self._expeditions[expedition].highest_value()
+                    or card.get_value() == 0
+                ):
+                    self._expeditions[expedition].add_card(card)
+                    self._hand.remove_card(card)
+                else:
+                    raise ValueError("Small value of the card")
+            else:
+                raise ValueError("The card color must be same as expedition color.")
+        else:
+            raise ValueError("The player does not have this card.")
+
+    def discard_card(self, card: Card, discard_pile: DiscardPile) -&gt; None:
+        """
+        Eldobja a kártyát egy dobó pakliba.
+
+        Args:
+            card (Card): Az eldobandó kártya.
+            discard_pile (DiscardPile): Az dobó pakli, ahová a kártyát dobni szeretnénk.
+
+        Raises:
+            ValueError: Ha a játékosnak nincs ilyen kártyája, vagy a kártya színe nem egyezik az dobó pakli színével.
+        """
+        if card in self._hand.get_hand():
+            if card.get_color() == discard_pile.get_color():
+                discard_pile._cards.append(card)
+                self._hand._cards.remove(card)
+            else:
+                raise ValueError("The card color must be same as discard pile color.")
+        else:
+            raise ValueError("The player does not have this card.")
+
+    def draw_card(self, pile: AbstractPile):
+        """
+        Felhúz egy kártyát egy pakliból.
+
+        Args:
+            pile (AbstractPile): A pakli, ahonnan fel szeretnénk húzni a kártyát.
+
+        Raises:
+            ValueError: Ha a pakli üres.
+        """
+        if pile.is_empty():
+            raise ValueError("The pile is empty.")
+        else:
+            self._hand.add_card(pile.get_top_card())
+
+    def calc_points(self) -&gt; None:
+        """
+        Kiszámolja a játékos pontjait az összes expedíciók a pontjai alapján és hozzáadja az eddigi pontszámhoz.
+        """
+        self._points += sum(
+            expedition.get_points() for expedition in self._expeditions.values()
+        )
+
+    def get_points(self) -&gt; int:
+        """
+        Visszaadja a játékos pontjait.
+
+        Returns:
+            int: A játékos pontjai.
+        """
+        return self._points
+
+    def get_expeditions(self):
+        return self._expeditions
+
+    def get_name(self):
+        return self._name
+
+    def get_hand(self):
+        """
+        Lekéri a játékos aktuális kártyáit a kezében.
+
+        Returns:
+            list: A játékos kezében lévő kártyák listája szöveges formában.
+        """
+        return [
+            f"{card.get_color()} {card.get_value()}" for card in self._hand.get_hand()
+        ]</code></pre>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lost_cities.model.Player.Player.__init__" class="doc doc-heading">
+<code class="highlight language-python">__init__(name)</code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Játékos osztály létrehozása.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b>name</b>
+                  (<code>str</code>)
+              –
+              <div class="doc-md-description">
+                <p>A játékos neve.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+      <details class="quote">
+        <summary>Source code in <code>lost_cities/model/Player.py</code></summary>
+        <pre class="highlight"><code class="language-python">def __init__(self, name: str) -&gt; None:
+    """
+    Játékos osztály létrehozása.
+
+    Args:
+        name (str): A játékos neve.
+    """
+    self._name = name
+    self._hand = Hand()
+    self._expeditions = {
+        color: Expedition(color)
+        for color in ["Red", "Green", "Blue", "White", "Yellow"]
+    }
+    self._points = 0</code></pre>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lost_cities.model.Player.Player.calc_points" class="doc doc-heading">
+<code class="highlight language-python">calc_points()</code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Kiszámolja a játékos pontjait az összes expedíciók a pontjai alapján és hozzáadja az eddigi pontszámhoz.</p>
+
+      <details class="quote">
+        <summary>Source code in <code>lost_cities/model/Player.py</code></summary>
+        <pre class="highlight"><code class="language-python">def calc_points(self) -&gt; None:
+    """
+    Kiszámolja a játékos pontjait az összes expedíciók a pontjai alapján és hozzáadja az eddigi pontszámhoz.
+    """
+    self._points += sum(
+        expedition.get_points() for expedition in self._expeditions.values()
+    )</code></pre>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lost_cities.model.Player.Player.discard_card" class="doc doc-heading">
+<code class="highlight language-python">discard_card(card, discard_pile)</code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Eldobja a kártyát egy dobó pakliba.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b>card</b>
+                  (<code><a class="autorefs autorefs-internal" title="lost_cities.model.Card.Card" href="#lost_cities.model.Card.Card">Card</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>Az eldobandó kártya.</p>
+              </div>
+            </li>
+            <li>
+              <b>discard_pile</b>
+                  (<code><span title="lost_cities.model.DiscardPile.DiscardPile">DiscardPile</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>Az dobó pakli, ahová a kártyát dobni szeretnénk.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Raises:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code>ValueError</code>
+              –
+              <div class="doc-md-description">
+                <p>Ha a játékosnak nincs ilyen kártyája, vagy a kártya színe nem egyezik az dobó pakli színével.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+      <details class="quote">
+        <summary>Source code in <code>lost_cities/model/Player.py</code></summary>
+        <pre class="highlight"><code class="language-python">def discard_card(self, card: Card, discard_pile: DiscardPile) -&gt; None:
+    """
+    Eldobja a kártyát egy dobó pakliba.
+
+    Args:
+        card (Card): Az eldobandó kártya.
+        discard_pile (DiscardPile): Az dobó pakli, ahová a kártyát dobni szeretnénk.
+
+    Raises:
+        ValueError: Ha a játékosnak nincs ilyen kártyája, vagy a kártya színe nem egyezik az dobó pakli színével.
+    """
+    if card in self._hand.get_hand():
+        if card.get_color() == discard_pile.get_color():
+            discard_pile._cards.append(card)
+            self._hand._cards.remove(card)
+        else:
+            raise ValueError("The card color must be same as discard pile color.")
+    else:
+        raise ValueError("The player does not have this card.")</code></pre>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lost_cities.model.Player.Player.draw_card" class="doc doc-heading">
+<code class="highlight language-python">draw_card(pile)</code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Felhúz egy kártyát egy pakliból.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b>pile</b>
+                  (<code><a class="autorefs autorefs-internal" title="lost_cities.model.AbstractPile.AbstractPile" href="#lost_cities.model.AbstractPile.AbstractPile">AbstractPile</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>A pakli, ahonnan fel szeretnénk húzni a kártyát.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Raises:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code>ValueError</code>
+              –
+              <div class="doc-md-description">
+                <p>Ha a pakli üres.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+      <details class="quote">
+        <summary>Source code in <code>lost_cities/model/Player.py</code></summary>
+        <pre class="highlight"><code class="language-python">def draw_card(self, pile: AbstractPile):
+    """
+    Felhúz egy kártyát egy pakliból.
+
+    Args:
+        pile (AbstractPile): A pakli, ahonnan fel szeretnénk húzni a kártyát.
+
+    Raises:
+        ValueError: Ha a pakli üres.
+    """
+    if pile.is_empty():
+        raise ValueError("The pile is empty.")
+    else:
+        self._hand.add_card(pile.get_top_card())</code></pre>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lost_cities.model.Player.Player.get_hand" class="doc doc-heading">
+<code class="highlight language-python">get_hand()</code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Lekéri a játékos aktuális kártyáit a kezében.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
+<b>list</b>            –
+            <div class="doc-md-description">
+              <p>A játékos kezében lévő kártyák listája szöveges formában.</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+      <details class="quote">
+        <summary>Source code in <code>lost_cities/model/Player.py</code></summary>
+        <pre class="highlight"><code class="language-python">def get_hand(self):
+    """
+    Lekéri a játékos aktuális kártyáit a kezében.
+
+    Returns:
+        list: A játékos kezében lévő kártyák listája szöveges formában.
+    """
+    return [
+        f"{card.get_color()} {card.get_value()}" for card in self._hand.get_hand()
+    ]</code></pre>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lost_cities.model.Player.Player.get_points" class="doc doc-heading">
+<code class="highlight language-python">get_points()</code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Visszaadja a játékos pontjait.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
+<b>int</b>(                <code>int</code>
+)            –
+            <div class="doc-md-description">
+              <p>A játékos pontjai.</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+      <details class="quote">
+        <summary>Source code in <code>lost_cities/model/Player.py</code></summary>
+        <pre class="highlight"><code class="language-python">def get_points(self) -&gt; int:
+    """
+    Visszaadja a játékos pontjait.
+
+    Returns:
+        int: A játékos pontjai.
+    """
+    return self._points</code></pre>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lost_cities.model.Player.Player.play_card" class="doc doc-heading">
+<code class="highlight language-python">play_card(card, expedition)</code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Kijátsza a kártyát egy expedícióra.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b>card</b>
+                  (<code><a class="autorefs autorefs-internal" title="lost_cities.model.Card.Card" href="#lost_cities.model.Card.Card">Card</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>A kijátszanó kártya.</p>
+              </div>
+            </li>
+            <li>
+              <b>expedition</b>
+                  (<code>str</code>)
+              –
+              <div class="doc-md-description">
+                <p>Az expedíció színe, ahová a kártyát ki szeretnénk játszani.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Raises:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code>ValueError</code>
+              –
+              <div class="doc-md-description">
+                <p>Ha a játékosnak nincs ilyen kártyája, a kártya színe nem egyezik az expedíció színével,
+        vagy a kártya értéke kisebb mint az expedíció legnagyobb kártyájának értéke.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+      <details class="quote">
+        <summary>Source code in <code>lost_cities/model/Player.py</code></summary>
+        <pre class="highlight"><code class="language-python">def play_card(self, card: Card, expedition: str) -&gt; None:
+    """
+    Kijátsza a kártyát egy expedícióra.
+
+    Args:
+        card (Card): A kijátszanó kártya.
+        expedition (str): Az expedíció színe, ahová a kártyát ki szeretnénk játszani.
+
+    Raises:
+        ValueError: Ha a játékosnak nincs ilyen kártyája, a kártya színe nem egyezik az expedíció színével,
+                    vagy a kártya értéke kisebb mint az expedíció legnagyobb kártyájának értéke.
+    """
+    if card in self._hand.get_hand():
+        if card.get_color() == expedition:
+            if (
+                card.get_value() &gt; self._expeditions[expedition].highest_value()
+                or card.get_value() == 0
+            ):
+                self._expeditions[expedition].add_card(card)
+                self._hand.remove_card(card)
+            else:
+                raise ValueError("Small value of the card")
+        else:
+            raise ValueError("The card color must be same as expedition color.")
+    else:
+        raise ValueError("The player does not have this card.")</code></pre>
+      </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div><h2 id="controller">Controller</h2>
+
+
+<div class="doc doc-object doc-module">
+
+
+<a id="lost_cities.controller.game_controller"></a>
+  <div class="doc doc-contents first">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div><h2 id="view">View</h2>
+
+
+<div class="doc doc-object doc-module">
+
+
+<a id="lost_cities.view.console_view"></a>
+  <div class="doc doc-contents first">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="lost_cities.view.console_view.ConsoleView" class="doc doc-heading">
+        <code>ConsoleView</code>
+
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p>A ConsoleView osztály kezeli a konzolon történő játékmenetet.</p>
+
+
+        <details class="quote">
+          <summary>Source code in <code>lost_cities/view/console_view.py</code></summary>
+          <pre class="highlight"><code class="language-python">class ConsoleView:
+    """
+    A ConsoleView osztály kezeli a konzolon történő játékmenetet.
+    """
+
+    def __init__(self):
+        """
+        Üdvözlő szöveg.
+        """
+        print("Welcome to Lost Cities Game!")
+
+    def get_player_names(self) -&gt; List[str]:
+        """
+        Bekéri a játékosok nevét.
+
+        Returns:
+            List[str]: A játékosok neveinek listája.
+        """
+        player_names = []
+        for i in range(2):
+            name = input(f"Enter name for player {i+1}: ")
+            player_names.append(name)
+        return player_names
+
+    def get_player_decision(self, hand) -&gt; str:
+        """
+        Bekéri a felhasználótol, hogy el szeretné-e dobni a kártyát (discard), vagy le szeretné-e játszani (play).
+        play: 1
+        discard: 0
+
+        Returns:
+            str: A játékos döntése ("discard" vagy "play").
+        """
+        print("\nYour hand: " + str(hand))
+        while True:
+            decision = input(
+                "Would you like to discard a card (0) or play a card (1)? Enter the number: "
+            )
+            if decision == "1":
+                return "play"
+            elif decision == "0":
+                return "discard"
+            else:
+                print("Invalid input. Please enter either 0 (discard) or 1 (play).")
+
+    def get_card_from_hand(self, hand):
+        """
+        Kéri a játékostól, hogy válasszon egy kártyát a kezéből.
+
+        Args:
+            hand (list): A játékos kártyáinak listája.
+
+        Returns:
+            Card: A játékos által választott kártya.
+        """
+        print("\nYour hand: " + str(hand))
+        while True:
+            chosen_color = input(
+                "Please enter the color of the card you want to select from your hand: "
+            )
+            chosen_value = int(
+                input(
+                    "Please enter the value of the card you want to select from your hand: "
+                )
+            )
+
+            for card in hand:
+                if (
+                    card.get_color() == chosen_color
+                    and card.get_value() == chosen_value
+                ):
+                    return card
+
+            print("The card you selected is not in your hand. Please choose again.")
+
+    def print_board(self, piles):
+        print("\nDiscard piles:")
+        for color in ["Red", "Green", "Blue", "White", "Yellow"]:
+            if not piles[color].is_empty():
+                print(color + ": top card" + piles[color].display_top_card())
+            else:
+                print(color + ": empty")
+
+    def print_expeditions(self, player):
+        print("\n" + player.get_name() + " expeditions:")
+        for color in ["Red", "Green", "Blue", "White", "Yellow"]:
+            print(color + ": " + str(player.get_expeditions()[color].get_expedition()))</code></pre>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lost_cities.view.console_view.ConsoleView.__init__" class="doc doc-heading">
+<code class="highlight language-python">__init__()</code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Üdvözlő szöveg.</p>
+
+      <details class="quote">
+        <summary>Source code in <code>lost_cities/view/console_view.py</code></summary>
+        <pre class="highlight"><code class="language-python">def __init__(self):
+    """
+    Üdvözlő szöveg.
+    """
+    print("Welcome to Lost Cities Game!")</code></pre>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lost_cities.view.console_view.ConsoleView.get_card_from_hand" class="doc doc-heading">
+<code class="highlight language-python">get_card_from_hand(hand)</code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Kéri a játékostól, hogy válasszon egy kártyát a kezéből.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b>hand</b>
+                  (<code>list</code>)
+              –
+              <div class="doc-md-description">
+                <p>A játékos kártyáinak listája.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
+<b>Card</b>            –
+            <div class="doc-md-description">
+              <p>A játékos által választott kártya.</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+      <details class="quote">
+        <summary>Source code in <code>lost_cities/view/console_view.py</code></summary>
+        <pre class="highlight"><code class="language-python">def get_card_from_hand(self, hand):
+    """
+    Kéri a játékostól, hogy válasszon egy kártyát a kezéből.
+
+    Args:
+        hand (list): A játékos kártyáinak listája.
+
+    Returns:
+        Card: A játékos által választott kártya.
+    """
+    print("\nYour hand: " + str(hand))
+    while True:
+        chosen_color = input(
+            "Please enter the color of the card you want to select from your hand: "
+        )
+        chosen_value = int(
+            input(
+                "Please enter the value of the card you want to select from your hand: "
+            )
+        )
+
+        for card in hand:
+            if (
+                card.get_color() == chosen_color
+                and card.get_value() == chosen_value
+            ):
+                return card
+
+        print("The card you selected is not in your hand. Please choose again.")</code></pre>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lost_cities.view.console_view.ConsoleView.get_player_decision" class="doc doc-heading">
+<code class="highlight language-python">get_player_decision(hand)</code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Bekéri a felhasználótol, hogy el szeretné-e dobni a kártyát (discard), vagy le szeretné-e játszani (play).
+play: 1
+discard: 0</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
+<b>str</b>(                <code>str</code>
+)            –
+            <div class="doc-md-description">
+              <p>A játékos döntése ("discard" vagy "play").</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+      <details class="quote">
+        <summary>Source code in <code>lost_cities/view/console_view.py</code></summary>
+        <pre class="highlight"><code class="language-python">def get_player_decision(self, hand) -&gt; str:
+    """
+    Bekéri a felhasználótol, hogy el szeretné-e dobni a kártyát (discard), vagy le szeretné-e játszani (play).
+    play: 1
+    discard: 0
+
+    Returns:
+        str: A játékos döntése ("discard" vagy "play").
+    """
+    print("\nYour hand: " + str(hand))
+    while True:
+        decision = input(
+            "Would you like to discard a card (0) or play a card (1)? Enter the number: "
+        )
+        if decision == "1":
+            return "play"
+        elif decision == "0":
+            return "discard"
+        else:
+            print("Invalid input. Please enter either 0 (discard) or 1 (play).")</code></pre>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lost_cities.view.console_view.ConsoleView.get_player_names" class="doc doc-heading">
+<code class="highlight language-python">get_player_names()</code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Bekéri a játékosok nevét.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
+                <code><span title="typing.List">List</span>[str]</code>
+            –
+            <div class="doc-md-description">
+              <p>List[str]: A játékosok neveinek listája.</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+      <details class="quote">
+        <summary>Source code in <code>lost_cities/view/console_view.py</code></summary>
+        <pre class="highlight"><code class="language-python">def get_player_names(self) -&gt; List[str]:
+    """
+    Bekéri a játékosok nevét.
+
+    Returns:
+        List[str]: A játékosok neveinek listája.
+    """
+    player_names = []
+    for i in range(2):
+        name = input(f"Enter name for player {i+1}: ")
+        player_names.append(name)
+    return player_names</code></pre>
+      </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../class_diagram/" class="btn btn-neutral float-left" title="Class Diagram"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../class_diagram/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
