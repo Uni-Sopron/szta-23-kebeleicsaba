@@ -34,5 +34,16 @@ USER appuser
 COPY . .
 
 # Run the executable
-ENTRYPOINT ["python", "-m", "lost_cities"]
-CMD ["10"]
+# ENTRYPOINT ["python", "-m", "lost_cities"]
+# CMD ["10"]
+
+
+# Install and run mkdocs
+FROM runtime AS docs
+
+USER root
+
+RUN pip install mkdocs mkdocstrings "mkdocstrings[python]"
+
+# CMD ["mkdocs", "build"]
+CMD ["mkdocs", "serve", "--dev-addr=0.0.0.0:8000"]
