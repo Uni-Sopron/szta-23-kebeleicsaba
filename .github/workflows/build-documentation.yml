@@ -28,7 +28,7 @@ jobs:
         docker run --rm -v $GITHUB_WORKSPACE:/home/appuser -v $GITHUB_WORKSPACE/site:/home/appuser/site my-docs-builder:latest
 
     - name: Archive documentation
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-pages-artifact@v1.0.9
       with:
         name: documentation
         path: site/
