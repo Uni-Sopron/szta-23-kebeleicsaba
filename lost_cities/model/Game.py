@@ -63,3 +63,9 @@ class Game:
             bool: Igaz, ha a játéknak vége (a pakli üres), egyébként hamis.
         """
         return self._deck.is_empty()
+
+    def get_current_player(self):
+        return self._current_player
+
+    def get_discard_piles(self):
+        return self._discard_piles

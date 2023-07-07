@@ -72,3 +72,6 @@ class Expedition:
             base_score += 20
 
         return base_score
+
+    def get_expedition(self):
+        return self._cards

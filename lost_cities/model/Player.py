@@ -103,3 +103,20 @@ class Player:
             int: A játékos pontjai.
         """
         return self._points
+
+    def get_expeditions(self):
+        return self._expeditions
+
+    def get_name(self):
+        return self._name
+
+    def get_hand(self):
+        """
+        Lekéri a játékos aktuális kártyáit a kezében.
+
+        Returns:
+            list: A játékos kezében lévő kártyák listája szöveges formában.
+        """
+        return [
+            f"{card.get_color()} {card.get_value()}" for card in self._hand.get_hand()
+        ]
