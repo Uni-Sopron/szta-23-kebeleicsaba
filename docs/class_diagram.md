@@ -1,3 +1,3 @@
 # A játék osztálydiagrammja
 
-![Class Diagram](class_diagram.svg)
+![Class Diagram](class_diagram/class_diagram.svg)
