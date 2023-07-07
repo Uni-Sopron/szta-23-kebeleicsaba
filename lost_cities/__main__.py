@@ -4,4 +4,4 @@ from .view.console_view import ConsoleView
 if __name__ == "__main__":
     v = ConsoleView()
     c = GameController(v)
-    c.main()
+    # c.main()
