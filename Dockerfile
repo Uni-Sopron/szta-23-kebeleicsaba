@@ -34,9 +34,7 @@ USER appuser
 COPY . .
 
 # Run the executable
-ENTRYPOINT ["python", "-m", "lost_cities"]
-CMD ["10"]
-
+CMD ["python", "-m", "lost_cities"]
 
 # Install and run mkdocs
 FROM runtime AS docs
