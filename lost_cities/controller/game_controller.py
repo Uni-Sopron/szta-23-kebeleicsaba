@@ -1,13 +1,19 @@
 from ..model.Game import Game
-from ..view.console_view import ConsoleView
 
 
 class GameController:
-    def __init__(self, player_names):
-        self.view = ConsoleView()
+    def __init__(self, view):
+        self.view = view
         self.player_names = self.view.get_player_names()
         self.number_of_rounds = 3
-        self.game = Game(player_names)
+        self.game = Game(self.player_names)
 
     def turn(self):
-        pass
+        self.game.setup()
+        d = self.view.get_player_decision()
+        print(d)
+        print("Hello Universe")
+
+    def main(self):
+        for _ in range(self.number_of_rounds):
+            self.turn()

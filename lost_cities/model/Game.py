@@ -35,9 +35,18 @@ class Game:
             for _ in range(8):
                 player.draw_card(self._deck)
 
-    def end(self) -> dict:
+    def switch_player(self):
         """
-        Befejezi a játékot, visszaadja a játékosok pontjait.
+        Váltja a soron következő játékost.
+        """
+        if self._current_player == self._players[0]:
+            self._current_player = self._players[1]
+        else:
+            self._current_player = self._players[0]
+
+    def get_game_points(self) -> dict:
+        """
+        Visszaadja a játékosok pontjait.
 
         Returns:
             dict: Egy dict, ahol kulcsok a játékosok nevei, az értékek pedig a játékosok pontjai.
