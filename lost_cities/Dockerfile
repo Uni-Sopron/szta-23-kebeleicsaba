@@ -45,5 +45,5 @@ USER root
 
 RUN pip install mkdocs mkdocstrings "mkdocstrings[python]"
 
-# CMD ["mkdocs", "build"]
-CMD ["mkdocs", "serve", "--dev-addr=0.0.0.0:8000"]
+CMD ["mkdocs", "build"]
+# CMD ["mkdocs", "serve", "--dev-addr=0.0.0.0:8000"]
